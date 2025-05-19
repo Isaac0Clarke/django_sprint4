@@ -106,7 +106,7 @@ class Comment(models.Model):
     text = models.TextField('Текст комментария')
     current_post = models.ForeignKey(
         Post,
-        on_delete=models.CASCADE,   
+        on_delete=models.CASCADE,
         related_name='comments'
     )
     created_at = models.DateTimeField(auto_now_add=True)
