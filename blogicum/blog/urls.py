@@ -1,11 +1,12 @@
 from django.urls import path
-from . import views
 from django.contrib.auth.decorators import login_required
+from . import views
 
-app_name = 'blog'
+
+app_name = "blog"
+
 
 urlpatterns = [
-
     path('', views.BlogListView.as_view(), name='index'),
     path('profile/edit/', views.edit_profile, name='edit_profile'),
     path(
@@ -13,8 +14,11 @@ urlpatterns = [
         views.ProfileListView.as_view(),
         name='profile'
     ),
-    path('category/<slug:slug>/',
-         views.CategoryListView.as_view(), name='category_posts'),
+    path(
+        'category/<slug:slug>/',
+        views.CategoryListView.as_view(),
+        name='category_posts'
+    ),
     path(
         'posts/<int:pk>/',
         views.PostDetailView.as_view(),
@@ -50,5 +54,4 @@ urlpatterns = [
         login_required(views.PostCreateView.as_view()),
         name='create_post'
     ),
-
 ]

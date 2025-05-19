@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5nknw9=y+z9z1tui7x2y=i42_^5d2dzq6n-w$_g!u=d$n$fnci'
+SECRET_KEY = 'django-insecure-_w0e+s0d^4bv+@#y^imo(g#uc1=%k(y8n*h0!$+ut!1ty5_)j2'
 LOGIN_REDIRECT_URL = 'blog:index'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -140,3 +140,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_FAILURE_VIEW = 'pages.views.csrf_failure'
