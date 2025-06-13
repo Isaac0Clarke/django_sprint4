@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserChangeForm
 
 from .models import Post, Comment
 
@@ -12,8 +11,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'text', 'pub_date',
-                  'location', 'category', 'image',)
+        fields = "__all__"
         widgets = {
             'pub_date': forms.DateTimeInput(
                 format='%Y-%m-%dT%H:%M',
@@ -25,23 +23,14 @@ class PostForm(forms.ModelForm):
         }
 
 
-class UserEditForm(UserChangeForm):
-    password = None
-
+class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = (
-            'username',
-            'first_name',
-            'last_name',
-            'email'
-        )
+        fields = "__all__"
 
 
 class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = (
-            'text',
-        )
+        fields = ('text',)
